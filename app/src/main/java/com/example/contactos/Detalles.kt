@@ -12,7 +12,7 @@ class Detalles : AppCompatActivity() {
 
         setSupportActionBar(tbToolbar)
 
-        var actionBar = supportActionBar
+        val actionBar = supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
     }
 }

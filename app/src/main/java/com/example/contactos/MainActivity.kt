@@ -1,16 +1,25 @@
 package com.example.contactos
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ListView
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    var contactos: ArrayList<Contacto>? = null
+    var lista: ListView? = null
+    var adaptador: AdapterCustom? = null
+
+    companion object {
+        var contactos: ArrayList<Contacto>? = null
+
+        fun agregarContacto(contacto: Contacto) {
+            contactos?.add(contacto)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,9 +42,9 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        val lista = findViewById<ListView>(R.id.listaXml)
-        val adaptador = AdapterCustom(this, contactos!!)
-        lista.adapter = adaptador
+        lista = findViewById<ListView>(R.id.listaXml)
+        adaptador = AdapterCustom(this, contactos!!)
+        lista?.adapter = adaptador
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -44,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item?.itemId) {
+        when (item.itemId) {
             R.id.iNuevo -> {
                 val intent = Intent(this, Nuevo::class.java)
                 startActivity(intent)
@@ -54,5 +63,10 @@ class MainActivity : AppCompatActivity() {
                 return super.onOptionsItemSelected(item)
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        adaptador?.notifyDataSetChanged()
     }
 }

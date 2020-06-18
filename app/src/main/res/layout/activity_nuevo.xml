@@ -18,9 +18,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/Theme.AppCompat.Light" />
 
-
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivFotoNuevo"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginStart="16dp"
@@ -41,11 +40,13 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:hint="@string/nombre"
+        android:inputType="textPersonName|text"
+        android:singleLine="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/ivFotoNuevo" />
 
     <EditText
-        android:id="@+id/tvApellido"
+        android:id="@+id/tvApellidoDeta"
         android:layout_width="185dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -54,9 +55,11 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:hint="@string/apellido"
+        android:inputType="textPersonName|text"
+        android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvNombreDeta"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/ivFotoNuevo" />
 
     <EditText
         android:id="@+id/tvEmpresaDeta"
@@ -68,6 +71,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:hint="@string/empresa"
+        android:inputType="text"
+        android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,13 +85,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:text="@string/edad"
-        app:layout_constraintBottom_toBottomOf="@+id/tvPesoDeta"
-        app:layout_constraintEnd_toStartOf="@+id/tvPesoDeta"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPeso"
+        app:layout_constraintEnd_toStartOf="@+id/tvPeso"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvPesoDeta" />
+        app:layout_constraintTop_toTopOf="@+id/tvPeso" />
 
     <TextView
-        android:id="@+id/tvPesoDeta"
+        android:id="@+id/tvPeso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -96,46 +101,52 @@
         app:layout_constraintTop_toBottomOf="@+id/tvEmpresaDeta" />
 
     <TextView
-        android:id="@+id/tvTelefonoDeta"
+        android:id="@+id/tvTelefono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="@string/telefono"
-        app:layout_constraintBottom_toBottomOf="@+id/tvPesoDeta"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPeso"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvPesoDeta"
-        app:layout_constraintTop_toTopOf="@+id/tvPesoDeta" />
+        app:layout_constraintStart_toEndOf="@+id/tvPeso"
+        app:layout_constraintTop_toTopOf="@+id/tvPeso" />
 
     <EditText
-        android:id="@+id/textView6"
+        android:id="@+id/tvAñosDeta"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:hint="@string/_25"
-        app:layout_constraintBottom_toBottomOf="@+id/textView7"
+        android:inputType="number"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPesoDeta"
         app:layout_constraintEnd_toEndOf="@+id/tvEdadDeta"
         app:layout_constraintStart_toStartOf="@+id/tvEdadDeta"
-        app:layout_constraintTop_toTopOf="@+id/textView7" />
+        app:layout_constraintTop_toTopOf="@+id/tvPesoDeta" />
 
     <EditText
-        android:id="@+id/textView7"
+        android:id="@+id/tvPesoDeta"
         android:layout_width="55dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="@string/_80"
-        app:layout_constraintEnd_toEndOf="@+id/tvPesoDeta"
-        app:layout_constraintStart_toStartOf="@+id/tvPesoDeta"
-        app:layout_constraintTop_toBottomOf="@+id/tvPesoDeta" />
+        android:inputType="numberDecimal"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="@+id/tvPeso"
+        app:layout_constraintStart_toStartOf="@+id/tvPeso"
+        app:layout_constraintTop_toBottomOf="@+id/tvPeso" />
 
     <EditText
-        android:id="@+id/textView8"
+        android:id="@+id/tvTelefonoDeta"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:hint="@string/_3123241543"
-        app:layout_constraintBottom_toBottomOf="@+id/textView7"
-        app:layout_constraintEnd_toEndOf="@+id/tvTelefonoDeta"
-        app:layout_constraintStart_toStartOf="@+id/tvTelefonoDeta"
-        app:layout_constraintTop_toTopOf="@+id/textView7" />
+        android:inputType="phone"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPesoDeta"
+        app:layout_constraintEnd_toEndOf="@+id/tvTelefono"
+        app:layout_constraintStart_toStartOf="@+id/tvTelefono"
+        app:layout_constraintTop_toTopOf="@+id/tvPesoDeta" />
 
     <TextView
         android:id="@+id/textView9"
@@ -150,12 +161,14 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/textView10"
+        android:id="@+id/tvEmailDeta"
         android:layout_width="185dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
         android:hint="@string/cflorez_gmail_com"
+        android:inputType="textEmailAddress"
+        android:singleLine="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView9"
         app:layout_constraintStart_toStartOf="@+id/textView9"
@@ -171,7 +184,7 @@
         android:layout_marginRight="80dp"
         android:text="@string/direccion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTelefonoDeta" />
 
     <EditText
         android:id="@+id/tvDireccionDeta"
@@ -179,10 +192,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:hint="@string/calle_20_n_3_a"
+        android:inputType="textPostalAddress"
+        android:singleLine="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView11"
         app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/textView10"
+        app:layout_constraintTop_toTopOf="@+id/tvEmailDeta"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
