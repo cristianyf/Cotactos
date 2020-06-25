@@ -19,4 +19,6 @@
     <string name="nombre">Nombre</string>
     <string name="apellido">Apellido</string>
     <string name="empresa">Empresa</string>
+    <string name="eliminar_contacto">Eliminar contacto</string>
+    <string name="editar_contacto">Editar contacto</string>
 </resources>

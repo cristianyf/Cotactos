@@ -6,15 +6,17 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_nuevo.*
-import kotlinx.android.synthetic.main.template_contacto.*
 
 class Nuevo : AppCompatActivity() {
 
     var fotoIndex: Int = 0
+
+    var index: Int = -1
 
     val fotos = arrayOf(
         R.drawable.foto_01,
@@ -36,6 +38,11 @@ class Nuevo : AppCompatActivity() {
         ivFotoNuevo.setOnClickListener {
             seleccionarFoto()
         }
+
+        if (intent.hasExtra("ID")) {
+            index = intent.getStringExtra("ID").toInt()
+            rellenarDatos(index)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -45,15 +52,19 @@ class Nuevo : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
             R.id.iCrearNuevo -> {
-                val nombre = findViewById<EditText>(R.id.tvNombreDeta)
-                val apellidos = findViewById<EditText>(R.id.tvApellidoDeta)
-                val empresa = findViewById<EditText>(R.id.tvEmpresaDeta)
-                val edad = findViewById<EditText>(R.id.tvAñosDeta)
-                val peso = findViewById<EditText>(R.id.tvPesoDeta)
-                val telefono = findViewById<EditText>(R.id.tvTelefonoDeta)
-                val email = findViewById<EditText>(R.id.tvEmailDeta)
-                val direccion = findViewById<EditText>(R.id.tvDireccionDeta)
+                val nombre = findViewById<EditText>(R.id.tvNombreNuevo)
+                val apellidos = findViewById<EditText>(R.id.tvApellidoNuevo)
+                val empresa = findViewById<EditText>(R.id.tvEmpresaNuevo)
+                val edad = findViewById<EditText>(R.id.tvAñosNuevo)
+                val peso = findViewById<EditText>(R.id.tvPesoNuevo)
+                val telefono = findViewById<EditText>(R.id.tvTelefonoNuevo)
+                val email = findViewById<EditText>(R.id.tvEmailNuevo)
+                val direccion = findViewById<EditText>(R.id.tvDireccionNuevo)
 
                 val campos = ArrayList<String>()
                 campos.add(nombre.text.toString())
@@ -73,19 +84,35 @@ class Nuevo : AppCompatActivity() {
                 if (campoVacio > 0) {
                     Toast.makeText(this, "Rellenar todos los campos", Toast.LENGTH_SHORT).show()
                 } else {
-                    MainActivity.agregarContacto(
-                        Contacto(
-                            campos.get(0),
-                            campos.get(1),
-                            campos.get(2),
-                            campos.get(3).toInt(),
-                            campos.get(4).toFloat(),
-                            campos.get(5),
-                            campos.get(6),
-                            campos.get(7),
-                            obtenerFoto(fotoIndex)
+                    if (index > -1) {
+                        MainActivity.actualizarContacto(
+                            index, Contacto(
+                                campos.get(0),
+                                campos.get(1),
+                                campos.get(2),
+                                campos.get(3).toInt(),
+                                campos.get(4).toFloat(),
+                                campos.get(5),
+                                campos.get(6),
+                                campos.get(7),
+                                obtenerFoto(fotoIndex)
+                            )
                         )
-                    )
+                    } else {
+                        MainActivity.agregarContacto(
+                            Contacto(
+                                campos.get(0),
+                                campos.get(1),
+                                campos.get(2),
+                                campos.get(3).toInt(),
+                                campos.get(4).toFloat(),
+                                campos.get(5),
+                                campos.get(6),
+                                campos.get(7),
+                                obtenerFoto(fotoIndex)
+                            )
+                        )
+                    }
                     finish()
                     Log.d("NUMERO DE CONTACTOS", MainActivity.contactos?.count().toString())
                 }
@@ -124,5 +151,28 @@ class Nuevo : AppCompatActivity() {
 
     fun obtenerFoto(index: Int): Int {
         return fotos.get(index)
+    }
+
+    fun rellenarDatos(index: Int) {
+        val contacto = MainActivity.obtenerContacto(index)
+
+        tvNombreNuevo.setText(contacto.nombre, TextView.BufferType.EDITABLE)
+        tvApellidoNuevo.setText(contacto.apellidos, TextView.BufferType.EDITABLE)
+        tvEmpresaNuevo.setText(contacto.empresa, TextView.BufferType.EDITABLE)
+        tvAñosNuevo.setText(contacto.edad.toString(), TextView.BufferType.EDITABLE)
+        tvPesoNuevo.setText(contacto.peso.toString(), TextView.BufferType.EDITABLE)
+        tvTelefonoNuevo.setText(contacto.telefono, TextView.BufferType.EDITABLE)
+        tvEmailNuevo.setText(contacto.email, TextView.BufferType.EDITABLE)
+        tvDireccionNuevo.setText(contacto.direccion, TextView.BufferType.EDITABLE)
+
+        ivFotoNuevo.setImageResource(contacto.foto)
+
+        var posicion = 0
+        for (foto in fotos) {
+            if (contacto.foto == foto) {
+                fotoIndex = posicion
+            }
+            posicion++
+        }
     }
 }

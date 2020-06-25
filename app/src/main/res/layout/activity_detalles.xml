@@ -34,7 +34,7 @@
         app:srcCompat="@drawable/foto_06" />
 
     <TextView
-        android:id="@+id/tvNombreDeta"
+        android:id="@+id/tvNombreNuevo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ivFotoNuevo" />
 
     <TextView
-        android:id="@+id/tvEmpresaDeta"
+        android:id="@+id/tvEmpresaNuevo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNombreDeta" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNombreNuevo" />
 
     <TextView
         android:id="@+id/tvEdadDeta"
@@ -82,7 +82,7 @@
         android:text="@string/peso"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmpresaDeta" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEmpresaNuevo" />
 
     <TextView
         android:id="@+id/tvTelefono"
@@ -97,17 +97,17 @@
         app:layout_constraintTop_toTopOf="@+id/tvPeso" />
 
     <TextView
-        android:id="@+id/tvAñosDeta"
+        android:id="@+id/tvAñosNuevo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_25"
-        app:layout_constraintBottom_toBottomOf="@+id/tvPesoDeta"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPesoNuevo"
         app:layout_constraintEnd_toEndOf="@+id/tvEdadDeta"
         app:layout_constraintStart_toStartOf="@+id/tvEdadDeta"
-        app:layout_constraintTop_toTopOf="@+id/tvPesoDeta" />
+        app:layout_constraintTop_toTopOf="@+id/tvPesoNuevo" />
 
     <TextView
-        android:id="@+id/tvPesoDeta"
+        android:id="@+id/tvPesoNuevo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -117,14 +117,14 @@
         app:layout_constraintTop_toBottomOf="@+id/tvPeso" />
 
     <TextView
-        android:id="@+id/tvTelefonoDeta"
+        android:id="@+id/tvTelefonoNuevo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_3123241543"
-        app:layout_constraintBottom_toBottomOf="@+id/tvPesoDeta"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPesoNuevo"
         app:layout_constraintEnd_toEndOf="@+id/tvTelefono"
         app:layout_constraintStart_toStartOf="@+id/tvTelefono"
-        app:layout_constraintTop_toTopOf="@+id/tvPesoDeta" />
+        app:layout_constraintTop_toTopOf="@+id/tvPesoNuevo" />
 
     <TextView
         android:id="@+id/textView9"
@@ -139,7 +139,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/tvEmailDeta"
+        android:id="@+id/tvEmailNuevo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -157,16 +157,16 @@
         android:layout_marginRight="80dp"
         android:text="@string/direccion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTelefonoDeta" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTelefonoNuevo" />
 
     <TextView
-        android:id="@+id/tvDireccionDeta"
+        android:id="@+id/tvDireccionNuevo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/calle_20_n_3_a"
-        app:layout_constraintBottom_toBottomOf="@+id/tvEmailDeta"
+        app:layout_constraintBottom_toBottomOf="@+id/tvEmailNuevo"
         app:layout_constraintEnd_toEndOf="@+id/textView11"
         app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/tvEmailDeta"
+        app:layout_constraintTop_toTopOf="@+id/tvEmailNuevo"
         app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

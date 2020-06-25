@@ -19,6 +19,18 @@ class MainActivity : AppCompatActivity() {
         fun agregarContacto(contacto: Contacto) {
             contactos?.add(contacto)
         }
+
+        fun obtenerContacto(index: Int): Contacto {
+            return contactos?.get(index)!!
+        }
+
+        fun eliminarContacto(index: Int) {
+            contactos?.removeAt(index)
+        }
+
+        fun actualizarContacto(index: Int, nuevoContacto: Contacto) {
+            contactos?.set(index, nuevoContacto)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +57,11 @@ class MainActivity : AppCompatActivity() {
         lista = findViewById<ListView>(R.id.listaXml)
         adaptador = AdapterCustom(this, contactos!!)
         lista?.adapter = adaptador
+        lista?.setOnItemClickListener { parent, view, position, id ->
+            val intent = Intent(this, Detalles::class.java)
+            intent.putExtra("ID", position.toString())
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -54,6 +71,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
             R.id.iNuevo -> {
                 val intent = Intent(this, Nuevo::class.java)
                 startActivity(intent)
